@@ -18,8 +18,8 @@
 "fixed-center": true,
 "ipc": true,
 "margin-top": 4,
-"margin-left": 8,
-"margin-right": 8,
+"margin-left": 0, //8
+"margin-right": 0, //8
 
 "modules-left": [
 	//"idle_inhibitor",
