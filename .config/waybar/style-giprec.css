@@ -5,7 +5,7 @@
     font-weight: bold;
     min-height: 0;
     /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-    font-size: 96%;
+    font-size: 95%;
     font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
@@ -176,11 +176,12 @@ tooltip label {
     background-color: alpha(@surface_container, 0.75);
     /* border: 1px solid @surface_container; */
     border-radius: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     padding-right: 15px;
     padding-left: 15px;
-    margin: 0 0 0 5px;
+    /*margin: 0 0 0 5px; */
+    margin: 0px;
 }
 /*-----Indicators----*/
 #custom-hypridle.notactive,
