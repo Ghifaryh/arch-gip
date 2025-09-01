@@ -17,7 +17,7 @@
 "spacing": 3,
 "fixed-center": true,
 "ipc": true,
-"margin-top": 4,
+"margin-top": 0,
 "margin-left": 0, //8
 "margin-right": 0, //8
 
@@ -41,11 +41,11 @@
     //"mpris",
     //"custom/separator#dot-line",
     "group/notify",
-    "network#speed",
-    "memory",
-	"battery",
+    //"network#speed",
+    //"memory",
+    "group/audio",
 	"custom/separator#blank",
-	"group/audio",
+	"battery",
 	"custom/separator#blank",
 	"custom/power",
 	],
