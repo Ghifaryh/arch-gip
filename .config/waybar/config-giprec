@@ -28,12 +28,12 @@
         "custom/separator#dot-blank",
 	"tray",
         "custom/separator#blank",
-        "hyprland/workspaces#alpha",
+        "hyprland/workspaces#numbers",
 	],
 
 "modules-center": [
-    "hyprland/window",
-	"custom/separator#blank",
+   // "hyprland/window",
+	//"custom/separator#blank",
     "mpris",
 ],
 
@@ -43,8 +43,9 @@
     "group/notify",
     //"network#speed",
     //"memory",
-    "group/audio",
-	"custom/separator#blank",
+  //"group/audio",
+	"pulseaudio",
+  "custom/separator#blank",
 	"battery",
 	"custom/separator#blank",
 	"custom/power",
