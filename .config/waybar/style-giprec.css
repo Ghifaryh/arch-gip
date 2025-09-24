@@ -1,3 +1,6 @@
+@import "colors.css";
+
+* {
   font-family: "JetBrainsMono Nerd Font Propo";
   font-weight: bold;
   min-height: 0;
@@ -61,41 +64,48 @@ tooltip label {
   padding-left: 4px;
 }
 /*-----modules indv----*/
+#/* Base: stable layout + paint-only transitions */
 #taskbar button,
 #workspaces button {
   color: @outline;
+  background-color: transparent;
   box-shadow: none;
   text-shadow: none;
-  padding: 0px;
-  padding-bottom: 0px;
-  padding-top: 1px;
-  border-radius: 9px;
-  padding-left: 4px;
-  padding-right: 4px;
-  /* animation: gradient_f 20s ease-in infinite; */
-  /* transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+
+  padding: 2px 6px; /* fixed layout */
+  border-radius: 10px;
+
+  /* GTK-friendly transitions (no transform/pseudo elements) */
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
 }
+
+/* Hover: soft background + color change */
 #taskbar button:hover,
 #workspaces button:hover {
   color: @primary;
-  border-radius: 20px;
-  padding-left: 2px;
-  padding-right: 2px;
-  /* animation: gradient_f 20s ease-in infinite; */
-  /* transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+  /* rgba of @primary (7AA2F7) at ~10% */
+  background-color: rgba(122, 162, 247, 0.1);
 }
 
+/* Active: stronger fill + light shadow */
 #taskbar button.active,
 #workspaces button.active {
   color: @background;
-  background-color: alpha(@primary_fixed, 0.75);
-  padding-left: 10px;
-  padding-right: 10px;
-  /* animation: gradient_f 20s ease-in infinite; */
-  /* transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+  /* rgba of @primary_fixed at ~75% */
+  background-color: rgba(122, 162, 247, 0.75);
+  box-shadow: 0 2px 8px rgba(122, 162, 247, 0.15);
 }
 
-#workspaces button.urgent {
+/* Pressed state: quick feedback without transforms */
+#taskbar button:active,
+#workspaces button:active {
+  background-color: rgba(122, 162, 247, 0.6);
+}
+
+workspaces button.urgent {
   color: @primary;
   border-radius: 10px;
 }
