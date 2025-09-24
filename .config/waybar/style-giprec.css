@@ -1,6 +1,3 @@
-@import "colors.css";
-
-* {
   font-family: "JetBrainsMono Nerd Font Propo";
   font-weight: bold;
   min-height: 0;
@@ -75,8 +72,8 @@ tooltip label {
   border-radius: 9px;
   padding-left: 4px;
   padding-right: 4px;
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  /* animation: gradient_f 20s ease-in infinite; */
+  /* transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
 }
 #taskbar button:hover,
 #workspaces button:hover {
@@ -84,8 +81,8 @@ tooltip label {
   border-radius: 20px;
   padding-left: 2px;
   padding-right: 2px;
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  /* animation: gradient_f 20s ease-in infinite; */
+  /* transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
 }
 
 #taskbar button.active,
@@ -94,8 +91,8 @@ tooltip label {
   background-color: alpha(@primary_fixed, 0.75);
   padding-left: 10px;
   padding-right: 10px;
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  /* animation: gradient_f 20s ease-in infinite; */
+  /* transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
 }
 
 #workspaces button.urgent {
@@ -176,9 +173,9 @@ tooltip label {
   background-color: alpha(@surface_container, 0.75);
   /* border: 1px solid @surface_container; */
   border-radius: 10px;
-  padding-top: 0px;
+  padding-top: 5px;
   /* it was 2px  */
-  padding-bottom: 0px;
+  padding-bottom: 5px;
   /* it was 15px */
   padding-right: 10px;
   padding-left: 10px;
