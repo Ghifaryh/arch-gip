@@ -135,3 +135,7 @@ nvim() {
   fi
 }
 
+alias kalivm="~/VMs/kali-vm.sh"
+# kalivm gui
+# kalivm headless
+# kalivm stop
