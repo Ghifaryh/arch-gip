@@ -1,0 +1,4 @@
+//change this
+# Exec=brave --enable-features=UseOzonePlatform --ozone-platform=wayland --force-device-scale-factor=1 %U
+Exec=brave --enable-features=UseOzonePlatform --ozone-platform=wayland --force-device-scale-factor=1 %U
+  
