@@ -23,13 +23,14 @@
 
 "modules-left": [
 	//"idle_inhibitor",
-	//"custom/separator#blank",
-	"clock",
-        "custom/separator#dot-blank",
-	"tray",
-        "custom/separator#blank",
-        "hyprland/workspaces#numbers",
-	],
+  //"clock",
+	"custom/power",
+  "hyprland/window",
+  //"custom/separator#line",
+	//"tray",
+  //"custom/separator#blank",
+  "hyprland/workspaces#numbers",
+],
 
 "modules-center": [
    // "hyprland/window",
@@ -38,16 +39,15 @@
 ],
 
 "modules-right": [
-    //"mpris",
-    //"custom/separator#dot-line",
-    "group/notify",
-    //"network#speed",
-    //"memory",
+  "group/notify",
+ //"network",
   //"group/audio",
-	"pulseaudio",
+  "tray",
+  "pulseaudio",
   "custom/separator#blank",
 	"battery",
 	"custom/separator#blank",
-	"custom/power",
+	//"custom/power",
+  "clock"
 	],
 }
