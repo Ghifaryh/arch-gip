@@ -25,11 +25,12 @@
 	//"idle_inhibitor",
   //"clock",
 	"custom/power",
-  "hyprland/window",
-  //"custom/separator#line",
+  //"hyprland/window",
+  "custom/separator#blank",
 	//"tray",
   //"custom/separator#blank",
   "hyprland/workspaces#numbers",
+  "hyprland/window",
 ],
 
 "modules-center": [
@@ -40,9 +41,11 @@
 
 "modules-right": [
   "group/notify",
- //"network",
+  "custom/separator#blank",
+  //"network",
   //"group/audio",
   "tray",
+  "custom/separator#blank",
   "pulseaudio",
   "custom/separator#blank",
 	"battery",
