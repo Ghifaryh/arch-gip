@@ -116,7 +116,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#7a7a7a'
 export PATH=$HOME/.local/bin:$PATH
 alias battery80='sudo tlp setcharge 75 80 BAT0 && echo "🔋 Charging limited to 80%"'
 alias battery100='sudo tlp setcharge 100 100 BAT0 && echo "🔋 Charging allowed to 100%"'
-alias gipwifi='nmcli device wifi rescan && nmcli device wifi connect "Siapa cik"'
+alias gipwifi='nmcli device wifi rescan && nmcli device wifi connect "Gphone"'
 alias refresh-waybar='pkill waybar && waybar & disown'
 
 alias ssh='kitty +kitten ssh'
@@ -139,3 +139,60 @@ alias kalivm="~/VMs/kali-vm.sh"
 # kalivm gui
 # kalivm headless
 # kalivm stop
+
+# if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+#     export MOZ_ENABLE_WAYLAND=1
+# fi
+
+# bun completions
+[ -s "/home/ghifaryh/.bun/_bun" ] && source "/home/ghifaryh/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# --- Hyprland Hz toggles (quiet background + desktop notif) ---
+hz_set() {
+  local HZ="$1"
+  local MON="eDP-1"
+  local RES="2880x1800"
+  local POS="0x0"
+  local SCALE="1.5"
+  local HYPRCTL="$(command -v hyprctl || echo /usr/bin/hyprctl)"
+
+  (
+    # detach from terminal completely
+    exec </dev/null >/dev/null 2>&1
+
+    # apply mode
+    "$HYPRCTL" keyword monitor "${MON},${RES}@${HZ},${POS},${SCALE}"
+
+    # small settle to avoid backlight race
+    sleep 0.15
+
+    # set brightness quietly to 30%
+    if command -v brightnessctl >/dev/null 2>&1; then
+      if brightnessctl -d amdgpu_bl1 info >/dev/null 2>&1; then
+        brightnessctl -q -d amdgpu_bl1 set 30%
+      elif brightnessctl -d amdgpu_bl0 info >/dev/null 2>&1; then
+        brightnessctl -q -d amdgpu_bl0 set 30%
+      else
+        brightnessctl -q set 30%
+      fi
+    fi
+
+    # desktop toast (no terminal output)
+    command -v notify-send >/dev/null 2>&1 && \
+      notify-send -t 1200 "Display" "✔ ${HZ} Hz applied • Brightness → 30%"
+  ) & disown
+}
+
+hz90() { hz_set 90; }
+hz60() { hz_set 60; }
+hztoggle() {
+  local HYPRCTL="$(command -v hyprctl || echo /usr/bin/hyprctl)"
+  local cur="$("$HYPRCTL" monitors 2>/dev/null | awk 'match($0,/@([0-9]+)/,a){print a[1]; exit}')"
+  [ "$cur" = "90" ] && hz_set 60 || hz_set 90
+}
+hzstatus() { hyprctl monitors | sed -n '1,8p'; }
+
