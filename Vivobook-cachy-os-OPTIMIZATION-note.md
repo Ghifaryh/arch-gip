@@ -1,7 +1,3 @@
-This is a comprehensive technical manifest of your system configuration. You can copy this directly into an **Obsidian** note (e.g., `Vivobook_Power_Config.md`) for your "Second Brain" backups.
-
----
-
 # 🛠️ System Engineering Manifest: Vivobook Power & Hibernation
 
 **Device:** ASUS Vivobook | **OS:** CachyOS (Linux Kernel 6.19+) | **Bootloader:** Limine
